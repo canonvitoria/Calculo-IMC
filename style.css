@@ -1,0 +1,375 @@
+@charset "UTF8";
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+  height: 100vh;
+  width: 100vh;
+  scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vh;
+}
+
+
+body::-webkit-scrollbar{
+  background-color: white;
+  width: 9px;
+}
+
+body::-webkit-scrollbar-thumb{
+  background-color: #fab54d;
+  border-radius: 30px;
+}
+
+h1 {
+    font-size: 4.5em;
+    font-family: 'Nunito';
+    color: #23402A;
+    margin-left: 1em;
+    width: 100px;
+}
+
+section.conteudo {
+    background-image: url(img/Página\ Principal.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.conteudo-principal {
+    width: 55em;
+    margin-left: 4em;
+    text-align: justify;
+    font-size: 1.1em;
+    font-family: 'Nunito';
+}
+
+/* Seção 2 */
+
+section.tabela{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(img/Seção\ 2.png);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Para retirar as setas da input de Nummber */
+
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+}
+
+/* Design input */
+
+.ha-screen-reader{
+    width: var(--ha-screen-reader-width, 1px);
+    height: var(--ha-screen-reader-height, 1px);
+    padding: var(--ha-screen-reader-padding, 0);
+    border: var(--ha-screen-reader-border, none);
+  
+    position: var(--ha-screen-reader-position, absolute);
+    clip: var(--ha-screen-reader-clip, rect(1px, 1px, 1px, 1px));
+    overflow: var(--ha-screen-reader-overflow, hidden);
+  }
+  
+  .field__input{ 
+    --uiFieldPlaceholderColor: var(--fieldPlaceholderColor, #ffffffb3);
+    
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+  
+    font-family: 'Nunito';
+    font-size: inherit;
+    color: white;
+  }
+  
+  .field__input:focus::-webkit-input-placeholder{
+    color: var(--uiFieldPlaceholderColor);
+  }
+  
+  .field__input:focus::-moz-placeholder{
+    color: var(--uiFieldPlaceholderColor);
+  }
+  
+  /*
+  =====
+  CORE STYLES
+  =====
+  */
+  
+  .field{
+    --uiFieldBorderWidth: var(--fieldBorderWidth, 2px);
+    --uiFieldPaddingRight: var(--fieldPaddingRight, 1rem);
+    --uiFieldPaddingLeft: var(--fieldPaddingLeft, 1rem);   
+    --uiFieldBorderColorActive: var(--fieldBorderColorActive, rgb(211, 48, 48));
+  
+    display: var(--fieldDisplay, inline-flex);
+    position: relative;
+    font-size: 1.2em;
+    color: white;
+    font-family: 'Nunito';
+  }
+  
+  .field__input{
+    box-sizing: border-box;
+    width: var(--fieldWidth, 100%);
+    height: var(--fieldHeight, 3rem);
+    padding: var(--fieldPaddingTop, 1.25rem) var(--uiFieldPaddingRight) var(--fieldPaddingBottom, .5rem) var(--uiFieldPaddingLeft);
+    border-bottom: 2px solid #6db07d;  
+  }
+  
+  .field__input:focus{
+    outline: none;
+  }
+  
+  .field__input::-webkit-input-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;
+  }
+  
+  .field__input::-moz-placeholder{
+    opacity: 0;
+    transition: opacity .2s ease-out;
+  }
+  
+  .field__input:focus::-webkit-input-placeholder{
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  
+  .field__input:focus::-moz-placeholder{
+    opacity: 1;
+    transition-delay: .2s;
+  }
+  
+  .field__label-wrap{
+    box-sizing: border-box;
+    pointer-events: none;
+    cursor: text;
+  
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .field__label-wrap::after{
+    content: "";
+    box-sizing: border-box;
+    width: 100%;
+    height: 0;
+    opacity: 0;
+  
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .field__input:focus ~ .field__label-wrap::after{
+    opacity: 1;
+  }
+  
+  .field__label{
+    position: absolute;
+    left: var(--uiFieldPaddingLeft);
+    top: calc(50% - .5em);
+  
+    line-height: 1;
+    font-size: var(--fieldHintFontSize, inherit);
+  
+    transition: top .2s cubic-bezier(0.9, -0.15, 0.1, 1.15), opacity .2s ease-out, font-size .2s ease-out;
+  }
+  
+  .field__input:focus ~ .field__label-wrap .field__label,
+  .field__input:not(:placeholder-shown) ~ .field__label-wrap .field__label{
+    --fieldHintFontSize: var(--fieldHintFontSizeFocused, .75rem);
+  
+    top: var(--fieldHintTopHover, .25rem);
+  }
+  
+  /* 
+  effect 1
+  */
+  
+  .field_v1 .field__label-wrap::after{
+    border-bottom: var(--uiFieldBorderWidth) solid var(--uiFieldBorderColorActive);
+    transition: opacity .2s ease-out;
+  }
+  
+  /* 
+  effect 2
+  */
+  
+  .field_v2 .field__label-wrap{
+    overflow: hidden;
+  }
+  
+  .field_v2 .field__label-wrap::after{
+    border-bottom:  2px solid #6db07d;
+    transform: translate3d(-105%, 0, 0);
+    transition: transform .285s ease-out .2s, opacity .2s ease-out .2s;
+  }
+  
+  .field_v2 .field__input:focus ~ .field__label-wrap::after{
+    transform: translate3d(0, 0, 0);
+    transition-delay: 0;
+  }
+  
+  /*
+  effect 3
+  */
+  
+  .field_v3 .field__label-wrap::after{
+    border:  2px solid #6db07d;
+    transition: height .2s ease-out, opacity .2s ease-out;
+  }
+  
+  .field_v3 .field__input:focus ~ .field__label-wrap::after{
+    height: 100%;
+  }
+  
+  /*
+  =====
+  LEVEL 4. SETTINGS
+  =====
+  */
+  
+  .field{
+    --fieldBorderColor: #abb60f;
+    --fieldBorderColorActive: #6db07d;
+  }
+  
+  /*
+  =====
+  DEMO
+  =====
+  */
+  
+  .page{
+    box-sizing: border-box;
+    max-width: 600px;
+    padding: 1rem;
+    margin-left: 10em;
+    margin-bottom: 5em;
+
+    display: grid;
+    grid-gap: 30px;
+
+  }
+
+  @media (min-width: 1024px){
+    
+    .linktr{
+      position: absolute; 
+      right: 1rem; 
+      bottom: 1rem;
+    }
+  }
+  
+  /* style bottom submit */
+
+  .bottom-submit {
+    width: 150px;
+    height: 30px;
+    margin-left: 50px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: #7C8C5A;
+    font-family: 'Nunito';
+    font-weight: 900;
+  }
+
+  .bottom-submit:hover {
+    cursor: pointer;
+    background-color: #7C8C5A;
+    color: white;
+    transition: .5s;
+  }
+
+  /* style  classification table */
+
+  .tabela-classificacao {
+    width: 1500px;
+    margin-left: 200px;
+    border: none;
+    border-collapse: separate; 
+    border-spacing: 10px;
+  }
+
+  .cabecalho {
+    background-color: #7C8C5A;
+    color: #f2f2f2;
+    font-family: 'Nunito';
+    font-size: 18px;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  td { 
+    background-color: #CFD989;
+    text-align: center;
+    color: #2e2e2e;
+    font-family: 'Nunito';
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    padding: 5px;
+  }
+
+  .botao-destino {
+    color: white;
+    background-color: #7C8C5A;
+    border-radius: 5px;
+    width: 150px;
+    
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 70px;
+    
+    text-align: center;
+    text-decoration: none;
+
+    font-family: 'Nunito';
+  }
+
+  .div-resultado {
+    width: 400px;
+    height: 100px;
+    background-color: #7C8C5A;
+    margin-top: 100px;
+    margin-left: 90em;
+    border-radius: 10px;
+  }
+
+  .div-resultado > p {
+    font-family: 'Nunito';
+    color: white;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
