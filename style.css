@@ -373,3 +373,50 @@ input[type=number] {
     margin-top: 5px;
     margin-left: 5px;
   }
+
+  @media screen and (max-width:768px) {
+    .conteudo-principal {
+      width: 300px;
+      margin-right: 80px;
+    }
+
+    .titulo-principal {
+      margin-top: 20px;
+      margin-right: 90px;
+    }
+
+    .conteudo {
+      display: flex;
+      align-items: center;
+    }
+
+    .botao-destino {
+      margin-right: 90px;
+    }
+
+    /* Seção 2 */
+
+    .page {
+      margin: 0 0 50px 10px;
+      padding: 0;
+    }
+
+    .bottom-submit {
+      margin-right:10px;
+    }
+
+    .tabela-classificacao{
+      margin: 0;
+      padding: 0;
+      width: 390px;
+      border-spacing: 5px;
+    }
+
+    .div-resultado {
+      margin: 10px 0 0 0;
+      padding: 0;
+      width: 260px;
+      height: 60px;
+
+  }
+}
